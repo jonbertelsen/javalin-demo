@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+    <script type="text/javascript" src="../public/js/my_script.js" th:src="@{/js/my_script.js}"></script>
+</head>
+
+<body>
+
+<header th:insert="~{fragments :: #header}"></header>
+
+<div class="myStyle">
+    <div th:text="${hello}"></div>
+    <br>
+    <div th:text="${message}"></div>
+    <button type="button" onclick="getValue()">Show JS value</button>
+    <br>
+    <p th:text="${extra}"></p><br>
+    <div id="test123"></div>
+
+
+
+
+</div>
+<footer th:insert="~{fragments :: #footer}"></footer>
+</body>
+</html>
