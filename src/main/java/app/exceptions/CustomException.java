@@ -3,13 +3,13 @@ package app.exceptions;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DatabaseException extends Exception {
+public class CustomException extends Exception {
 
-    public DatabaseException(String message) {
+    public CustomException(String message) {
         super(message);
         Logger.getLogger("web").log(Level.SEVERE, message);
     }
-    public DatabaseException(Exception ex, String message) {
+    public CustomException(Exception ex, String message) {
         super(message);
         Logger.getLogger("web").log(Level.SEVERE, message, ex.getMessage());
     }

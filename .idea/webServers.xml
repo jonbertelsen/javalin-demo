@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4cedf768-4053-40d2-87f4-dc49ac49511b" name="178.128.196.15" url="http://178.128.196.15:7070">
+        <fileTransfer rootFolder="/home/jetty" accessType="SFTP" host="178.128.196.15" port="22" sshConfigId="468505c2-8e83-4e28-b223-63189aa43a9c" sshConfig="jetty@178.128.196.15:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

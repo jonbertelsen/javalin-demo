@@ -1,8 +1,19 @@
-.myStyle {
+.bodyStyle {
     font-family: Arial, sans-serif;
     padding: 1em;
-    margin: 1em;
     display: inline-block;
     color: white;
     background-color: /*[[${backgroundColor}]]*/ pink;
+}
+
+#header {
+   width:100%;
+}
+
+#footer {
+    margin-top:20px;
+    margin-bottom:20px;
+    padding: 20px;
+    width:100%;
+    background-color: hsl(0, 0%, 90%);
 }

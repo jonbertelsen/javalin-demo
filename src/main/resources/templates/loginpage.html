@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments :: #head}"></head>
+<header th:insert="~{fragments :: #header}"></header>
+<body>
+    <h1>Please enter login credentials</h1>
+    <form method="post">
+        Enter login: <input type="text" name="username" width="100" /><br/>
+        Enter password: <input type="password" name="password" width="100"/><br/>
+        <button type="submit" formaction="loginaction">Log in</button>
+    </form>
+   <footer th:insert="~{fragments :: #footer}"></footer>
+</body>
+</html>
