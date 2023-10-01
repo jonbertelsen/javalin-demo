@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert="~{fragments :: #head}"></head>
-<header th:insert="~{fragments :: #header}"></header>
+<div th:replace="~{fragments :: head('Users')}"></div>
+<div th:insert="~{fragments :: header}"></div>
+
 <body>
 
 <!--@thymesVar id="userList" type="List<app.entities.User>"-->
@@ -26,6 +27,6 @@
         </tbody>
     </table>
 
-<footer th:insert="~{fragments :: #footer}"></footer>
+<div th:replace="~{fragments :: footer}"></div>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class ConnectionPool {
     public static HikariDataSource ds = null;
 
     /***
-     * Empty and private contructor due to single pattern. Use getInstance methods to
+     * Empty and private constructor due to single pattern. Use getInstance methods to
      * instantiate and get a connection pool.
      */
     private ConnectionPool() {
@@ -30,7 +30,7 @@ public class ConnectionPool {
     /***
      * Getting a singleton instance of a Hikari Connection Pool with default credentials and
      * connection string hardcoded in class
-     * @return
+     * @return ConnectionPool object
      */
     public static ConnectionPool getInstance()
     {
@@ -38,12 +38,13 @@ public class ConnectionPool {
     }
 
     /***
-     * Getting a singleon instance of a Hikari Connection Pool with specific credentials
-     * and connection string.
+     * Getting a singleton instance of a Hikari Connection Pool with specific credentials
+     * and connection string. If an environment variable "DEPLOYED" exists then local
+     * environment variables will be inserted with user credentials and DB connection string
      * @param user for Postgresql database user
      * @param password for Postgresql database user
      * @param url connection string for postgresql database. Remember to add currentSchema to string
-     * @return
+     * @return A ConnectionPool object
      */
     public static ConnectionPool getInstance(String user, String password, String url) {
         if (instance == null) {

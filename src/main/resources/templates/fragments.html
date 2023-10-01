@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head id="head">
-    <title>Test</title>
+<head th:fragment="head(title)">
+    <title th:text="${title}"></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../public/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
@@ -11,14 +11,13 @@
 
 <body>
 
-<div id="header" style="width:100%;border-bottom:1px solid black;">
-    Dette er så en header
-</div>
+    <header th:fragment="header" style="width:100%;border-bottom:1px solid black;">
+        Dette er så en header
+    </header>
 
-<div id="footer" style="width:100%;border-top:1px solid black;">
-    Dette er så en footer
-</div>
-
+    <footer th:fragment="footer" style="width:100%;border-top:1px solid black;">
+        Dette er så en footer
+    </footer>
 
 </body>
 </html>

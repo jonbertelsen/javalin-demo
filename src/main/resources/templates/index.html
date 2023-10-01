@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Frontpage</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../public/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
-    <script type="text/javascript" src="../public/js/my_script.js" th:src="@{/js/my_script.js}"></script>
-</head>
+<div th:replace="~{fragments :: head('Frontpage')}"></div>
 
 <body>
 
@@ -14,21 +8,21 @@
 <!--@thymesVar id="message" type="String"-->
 <!--@thymesVar id="extra" type="String"-->
 
-<header th:insert="~{fragments :: #header}"></header>
+<div th:replace="~{fragments :: header}"></div>
 
 <div class="myStyle">
     <div th:text="${hello}"></div>
     <br>
+
     <div th:text="${message}"></div>
     <button type="button" onclick="getValue()">Show JS value</button>
     <br>
     <p th:text="${extra}"></p><br>
     <div id="test123"></div>
 
-
-
-
 </div>
-<footer th:insert="~{fragments :: #footer}"></footer>
+
+<div th:replace="~{fragments :: footer}"></div>
+
 </body>
 </html>

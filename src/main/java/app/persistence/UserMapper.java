@@ -17,14 +17,13 @@ import java.util.logging.Logger;
 
 class UserMapper
 {
-
     static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
 
         User user = null;
 
-        String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+        String sql = "SELECT * FROM \"user\" WHERE username = ? AND password = ?";
 
         try (Connection connection = connectionPool.getConnection())
         {
@@ -53,7 +52,7 @@ class UserMapper
     {
         Logger.getLogger("web").log(Level.INFO, "");
         User user;
-        String sql = "insert into user (username, password, role) values (?,?,?)";
+        String sql = "insert into \"user\" (username, password, role) values (?,?,?)";
         try (Connection connection = connectionPool.getConnection())
         {
             try (PreparedStatement ps = connection.prepareStatement(sql))
@@ -105,6 +104,5 @@ class UserMapper
         }
         return userList;
     }
-
 
 }

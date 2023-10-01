@@ -5,9 +5,7 @@ import app.controllers.IndexController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
-import io.javalin.rendering.JavalinRenderer;
 import io.javalin.rendering.template.JavalinThymeleaf;
-import org.thymeleaf.templatemode.TemplateMode;
 
 public class Main
 {
@@ -19,15 +17,16 @@ public class Main
 
     public static void main(String[] args)
     {
+        // Initializing Javalin and Jetty webserver
+
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public");
-            JavalinRenderer.register(new JavalinThymeleaf());
-            JavalinThymeleaf.init(ThymeleafConfig
-                    .templateEngine(ThymeleafConfig
-                            .templateResolver(TemplateMode.HTML, "/templates/", ".html")));
+            JavalinThymeleaf.init(ThymeleafConfig.templateEngine());
         }).start(7070);
 
+        // Routing
+
         app.get("/", (ctx) ->  IndexController.indexController(ctx));
-        app.get("/users", (ctx) ->  UserController.userController(ctx, connectionPool));
+        app.get("/users", (ctx) ->  UserController.showUserList(ctx, connectionPool));
     }
 }

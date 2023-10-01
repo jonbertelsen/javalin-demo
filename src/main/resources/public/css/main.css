@@ -4,5 +4,5 @@
     margin: 1em;
     display: inline-block;
     color: white;
-    background-color: /*[[${backgroundColor}]]*/ pink;
+    background-color: pink;
 }

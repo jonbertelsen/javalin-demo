@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class UserController
 {
-    public static void userController(Context ctx, ConnectionPool connectionPool) throws DatabaseException
+    public static void showUserList(Context ctx, ConnectionPool connectionPool) throws DatabaseException
     {
         Map<String, Object> model = new HashMap<>();
         List<User> userList = UserFacade.getAllUsers(connectionPool);
