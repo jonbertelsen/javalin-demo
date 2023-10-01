@@ -1,14 +1,15 @@
 package app.config;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.nio.charset.StandardCharsets;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
+
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
 
 public class ThymeleafConfig {
 

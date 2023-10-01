@@ -1,21 +1,21 @@
 package app;
 
-import app.entities.User;
 import app.config.ThymeleafConfig;
+import app.controllers.IndexController;
+import app.controllers.UserController;
 import app.persistence.ConnectionPool;
-import app.persistence.UserFacade;
 import io.javalin.Javalin;
 import io.javalin.rendering.JavalinRenderer;
 import io.javalin.rendering.template.JavalinThymeleaf;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class Main
 {
-    private static ConnectionPool connectionPool = new ConnectionPool();
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "postgres";
+    private static final String URL = "jdbc:postgresql://localhost:5432/startcode?currentSchema=public";
+
+    private static final ConnectionPool connectionPool = ConnectionPool.getInstance(USER, PASSWORD, URL);
 
     public static void main(String[] args)
     {
@@ -27,19 +27,7 @@ public class Main
                             .templateResolver(TemplateMode.HTML, "/templates/", ".html")));
         }).start(7070);
 
-        app.get("/", ctx -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("extra", "Extra");
-            model.put("hello", "Hello, Javalin-World.");
-            model.put("message", "Her er en besked");
-            ctx.render("index.html", model);
-        });
-
-        app.get("/users", ctx -> {
-            Map<String, Object> model = new HashMap<>();
-            List<User> userList = UserFacade.getAllUsers(connectionPool);
-            model.put("userList", userList);
-            ctx.render("users.html", model);
-        });
+        app.get("/", (ctx) ->  IndexController.indexController(ctx));
+        app.get("/users", (ctx) ->  UserController.userController(ctx, connectionPool));
     }
 }
