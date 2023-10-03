@@ -11,12 +11,15 @@
 
 <body>
 
+    <!--@thymesVar id="user" type="java.lang.String"-->
+
     <header th:fragment="header" style="width:100%;border-bottom:1px solid black;">
-        Dette er så en header
+        <img src="../public/images/fourthingsplus.png" th:src="@{/images/fourthingsplus.png}" width="100%"/>
     </header>
 
     <footer th:fragment="footer" style="width:100%;border-top:1px solid black;">
-        Dette er så en footer
+        Dette er så en footer.
+        Her er brugerens login: <span th:text="${#ctx.session.email}"></span>
     </footer>
 
 </body>

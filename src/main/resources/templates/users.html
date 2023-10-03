@@ -27,6 +27,8 @@
         </tbody>
     </table>
 
+    <p th:if="${not #lists.isEmpty(userList)}">Listen er ikke tom</p>
+
 <div th:replace="~{fragments :: footer}"></div>
 </body>
 </html>

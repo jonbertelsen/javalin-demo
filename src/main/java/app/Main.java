@@ -26,7 +26,7 @@ public class Main
 
         // Routing
 
-        app.get("/", (ctx) ->  IndexController.indexController(ctx));
-        app.get("/users", (ctx) ->  UserController.showUserList(ctx, connectionPool));
+        app.get("/", ctx ->  IndexController.indexController(ctx));
+        app.get("/users", ctx ->  UserController.showUserList(ctx, connectionPool));
     }
 }

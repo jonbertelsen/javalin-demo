@@ -10,6 +10,18 @@
 
 <div th:replace="~{fragments :: header}"></div>
 
+<h1>Velkommen til Javalin og Thymeleaf demosite</h1>
+
+<p>Herunder ses lidt styring ved eksterne css og så et lille eksampel på brug af
+javascript i en ekstern script-fil. </p>
+
+<p>Bemærk at Thymeleaf skabelonerne ligger under /resources/templates/ og at de
+statiske filer (css, images og scripts) skal lægge i /resources/public.
+</p>
+
+<p>Der er endvidere gjort brug af fragmenter til genbrug af indhold. Bemærk at pagetitle
+på siderne sættes ved hjælp af en parameter til fragmentet.</p>
+
 <div class="myStyle">
     <div th:text="${hello}"></div>
     <br>
@@ -20,7 +32,18 @@
     <p th:text="${extra}"></p><br>
     <div id="test123"></div>
 
+    <a href="users.html?usergroup=1&page=2">view users</a>
+
+    <form method="post">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <button formaction="/users" type="submit" value="login">Login</button>
+    </form>
+
 </div>
+
+<p th:text="${#ctx.session.email}"></p>
+<p th:text="${#ctx.name}"></p>
 
 <div th:replace="~{fragments :: footer}"></div>
 
